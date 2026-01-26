@@ -1,0 +1,22 @@
+[project]
+name = "portfolio"
+version = "0.1.0"
+description = "This is my personal portfolio website built with Django and react nextjs."
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "boto3>=1.42.30",
+    "django>=6.0.1",
+    "django-cors-headers>=4.9.0",
+    "django-filter>=25.2",
+    "django-storages>=1.14.6",
+    "djangorestframework>=3.16.1",
+    "djangorestframework-simplejwt>=5.5.1",
+    "drf-spectacular>=0.29.0",
+    "gunicorn>=23.0.0",
+    "markdown>=3.10",
+    "pillow>=12.1.0",
+    "psycopg[binary]>=3.3.2",
+    "python-decouple>=3.8",
+    "whitenoise>=6.11.0",
+]

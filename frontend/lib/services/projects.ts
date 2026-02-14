@@ -7,11 +7,17 @@ import type {
 
 const BASE = "/api/projects";
 
-function buildParams(filters: ProjectFilters): Record<string, string | string[]> {
-  const params: Record<string, string | string[]> = {};
-  if (filters.status.length) params.status = filters.status;
-  if (filters.technologies.length) params.technologies = filters.technologies.join(",");
-  if (filters.ordering) params.ordering = filters.ordering;
+function buildParams(filters: ProjectFilters): URLSearchParams {
+  const params = new URLSearchParams();
+  if (filters.status.length) {
+    filters.status.forEach((s) => params.append("status", s));
+  }
+  if (filters.technologies.length) {
+    params.set("technologies", filters.technologies.join(","));
+  }
+  if (filters.ordering) {
+    params.set("ordering", filters.ordering);
+  }
   return params;
 }
 
@@ -20,9 +26,10 @@ export const projectsService = {
     filters: ProjectFilters,
     page = 1
   ): Promise<ProjectsListResponse> {
-    const { data } = await api.get<ProjectsListResponse>(BASE + "/", {
-      params: { ...buildParams(filters), page },
-    });
+    const params = buildParams(filters);
+    params.set("page", String(page));
+    const url = BASE + "/" + (params.toString() ? `?${params.toString()}` : "");
+    const { data } = await api.get<ProjectsListResponse>(url);
     return data;
   },
 

@@ -112,7 +112,14 @@ export default function ContactForm() {
                   Address
                 </h3>
                 <p className="text-gray-600">
-                  A108 Adam Street, New York, NY 535022
+                  <a
+                    href="https://maps.app.goo.gl/J7XVCfuRAar8PMcYA"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:underline"
+                  >
+                    View location on Google Maps
+                  </a>
                 </p>
               </div>
             </div>
@@ -149,16 +156,30 @@ export default function ContactForm() {
           </div>
 
           {/* Map */}
-          <div className="h-96 rounded-2xl overflow-hidden border border-gray-200 shadow-lg bg-gradient-to-br from-blue-50 to-cyan-50 flex items-center justify-center">
-            <div className="text-center space-y-4">
-              <MapPin className="h-12 w-12 text-blue-500 mx-auto" />
-              <div>
-                <h4 className="font-semibold text-gray-900">Location Map</h4>
-                <p className="text-sm text-gray-600">
-                  Add your Google Maps API key in layout.tsx to display the map
-                </p>
+          <div className="relative rounded-2xl overflow-hidden border border-gray-200 shadow-lg h-96">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.8234456789!2d-74.2234567!3d40.7456789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a22b8c8c8c9%3A0x5c5c5c5c5c5c5c5c!2sNew%20York%2C%20NY!5e0!3m2!1sen!2sus!4v1234567890"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="absolute inset-0"
+            />
+            {/* Clickable overlay to open Google Maps in new tab */}
+            <a
+              href="https://maps.app.goo.gl/J7XVCfuRAar8PMcYA"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="absolute inset-0 cursor-pointer z-10 hover:bg-black/5 transition-colors duration-200 flex items-center justify-center group"
+              title="Click to open location in Google Maps"
+            >
+              <div className="bg-white/90 px-4 py-2 rounded-lg shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-sm font-medium text-gray-700 flex items-center gap-2">
+                <MapPin className="h-4 w-4" />
+                Open in Google Maps
               </div>
-            </div>
+            </a>
           </div>
         </div>
 

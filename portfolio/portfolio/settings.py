@@ -33,6 +33,7 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='').split(',')
 
 INSTALLED_APPS = [
     'corsheaders',
+    'rest_framework',
     'core',
     'django.contrib.admin',
     'django.contrib.auth',

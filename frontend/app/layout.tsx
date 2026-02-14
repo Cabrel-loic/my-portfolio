@@ -26,6 +26,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Google Maps */}
+        <Script
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwY0cI5S2N9u9Yv3Kwg5ywJkr_J1234567"
+          strategy="afterInteractive"
+        />
         {/* Removed external CSS that may conflict with Tailwind */}
         {/* <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" /> */}
         {/* <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" /> */}

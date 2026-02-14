@@ -1,6 +1,7 @@
 "use client";
 
 import { Suspense, useEffect, useRef } from "react";
+import Image from "next/image";
 import Navigation from "../components/Navigation";
 import ContactForm from "../components/ContactForm";
 import { ProjectsSection } from "@/features/projects/components/ProjectsSection";
@@ -95,12 +96,15 @@ export default function Home() {
               <div className="hidden lg:block animate-float relative z-10">
                 <div className="relative">
                   <div className="absolute inset-0 bg-white/20 backdrop-blur-sm rounded-3xl blur-3xl opacity-50" />
-                  <div className="relative w-full h-96 bg-white/10 backdrop-blur-md rounded-3xl flex items-center justify-center border border-white/20 shadow-2xl">
-                    <div className="text-center space-y-4">
-                      <div className="text-8xl mb-4 animate-bounce">👨‍💻</div>
-                      <div className="w-32 h-1 bg-white/50 rounded-full mx-auto" />
-                      <p className="text-sm text-white/70 font-medium">Your Image Here</p>
-                    </div>
+                  <div className="relative w-full h-96 bg-white/10 backdrop-blur-md rounded-3xl overflow-hidden border border-white/20 shadow-2xl">
+                    <Image
+                      src="/assets/img/homeImage.jpg"
+                      alt="Full-Stack Developer"
+                      fill
+                      className="object-cover"
+                      priority
+                      quality={90}
+                    />
                   </div>
                 </div>
               </div>

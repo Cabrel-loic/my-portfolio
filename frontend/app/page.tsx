@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { Suspense, useEffect, useRef } from "react";
 import Navigation from "../components/Navigation";
 import ContactForm from "../components/ContactForm";
+import { ProjectsSection } from "@/features/projects/components/ProjectsSection";
 import { Code, Palette, Server, Sparkles, Zap, Heart, MessageCircle } from "lucide-react";
 
 export default function Home() {
@@ -245,30 +246,16 @@ export default function Home() {
           </div>
         </section>
 
-        <section
-          id="projects"
-          className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 via-white to-gray-50 relative"
-        >
-          <div className="absolute inset-0 bg-pattern opacity-20" />
-          <div className="max-w-7xl mx-auto text-center relative z-10 reveal" ref={(el) => { revealRefs.current[5] = el; }}>
-            <h2 className="text-4xl sm:text-5xl font-bold mb-4">
-              <span className="gradient-text">Projects</span>
-            </h2>
-            <p className="text-xl text-gray-600 mb-12">
-              Coming soon - Featured projects will be displayed here
-            </p>
-            <div className="inline-block px-6 py-3 bg-gradient-to-r from-purple-100 to-pink-100 rounded-full">
-              <p className="text-sm text-gray-600 font-medium">✨ Amazing work coming soon</p>
-            </div>
-          </div>
-        </section>
+        <Suspense fallback={<section id="projects" className="py-24 px-4 sm:px-6 lg:px-8 bg-gray-50 min-h-[60vh] flex items-center justify-center"><p className="text-gray-500">Loading projects…</p></section>}>
+          <ProjectsSection />
+        </Suspense>
 
         <section
           id="contact"
           className="py-24 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden"
         >
           <div className="absolute inset-0 bg-gradient-to-br from-purple-50/50 via-transparent to-pink-50/50" />
-          <div className="max-w-7xl mx-auto relative z-10 reveal" ref={(el) => { revealRefs.current[6] = el; }}>
+          <div className="max-w-7xl mx-auto relative z-10 reveal" ref={(el) => { revealRefs.current[5] = el; }}>
             <ContactForm />
           </div>
         </section>

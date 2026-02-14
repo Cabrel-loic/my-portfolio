@@ -59,6 +59,20 @@ class ProjectModelTests(TestCase):
         )
         p.full_clean()
 
+    def test_architectural_overview_media_handling_allowed(self):
+        p = Project(
+            title="X",
+            description="Y",
+            status=ProjectStatus.COMPLETED,
+            architectural_overview={
+                "frontend": "React",
+                "backend": "Django",
+                "database": "Postgres",
+                "media_handling": "S3 with CloudFront CDN for image optimization",
+            },
+        )
+        p.full_clean()
+
     def test_architectural_overview_invalid_key_raises(self):
         p = Project(
             title="X",

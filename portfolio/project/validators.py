@@ -4,6 +4,18 @@ import re
 from django.core.exceptions import ValidationError
 from urllib.parse import urlparse
 
+# Allowed top-level keys in architectural_overview JSON structure.
+# Extensible list for scalability: add new architecture concerns here as the domain grows.
+ARCHITECTURE_ALLOWED_KEYS = {
+    "frontend",        # Frontend tech stack, frameworks, tooling
+    "backend",         # Backend runtime, frameworks, API design
+    "database",        # Database type, schema strategy, optimization
+    "deployment",      # Hosting, infrastructure, CI/CD
+    "stages",          # Development workflow stages (list of dicts with name/description)
+    "overview",        # High-level architecture summary
+    "media_handling",  # File uploads, CDN, blob storage, image optimization, etc.
+}
+
 
 def validate_optional_https_url(value):
     if not value:
@@ -57,10 +69,12 @@ def validate_challenges_solutions(value):
 def validate_architecture_structure(value):
     if not value or not isinstance(value, dict):
         return
-    allowed = {"frontend", "backend", "database", "deployment", "stages", "overview"}
-    extra = set(value.keys()) - allowed
+    extra = set(value.keys()) - ARCHITECTURE_ALLOWED_KEYS
     if extra:
-        raise ValidationError(f"Invalid keys in architectural_overview: {sorted(extra)}. Allowed: {sorted(allowed)}.")
+        raise ValidationError(
+            f"Invalid keys in architectural_overview: {sorted(extra)}. "
+            f"Allowed: {sorted(ARCHITECTURE_ALLOWED_KEYS)}."
+        )
     for k, v in value.items():
         if isinstance(v, str):
             continue

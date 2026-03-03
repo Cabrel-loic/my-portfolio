@@ -1,11 +1,11 @@
 "use client";
 
 import { Suspense, useEffect, useRef } from "react";
-import Image from "next/image";
 import Navigation from "../components/Navigation";
 import ContactForm from "../components/ContactForm";
+import AboutSection from "../components/AboutSection";
 import { ProjectsSection } from "@/features/projects/components/ProjectsSection";
-import { Code, Palette, Server, Sparkles, Zap, Heart, MessageCircle } from "lucide-react";
+import { Code, Palette, Zap, MessageCircle } from "lucide-react";
 import PremiumHero from "../components/hero/PremiumHero";
 
 export default function Home() {
@@ -35,12 +35,6 @@ export default function Home() {
     };
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  };
 
   return (
     <div className="min-h-screen bg-black overflow-hidden">
@@ -49,136 +43,69 @@ export default function Home() {
       <main>
         <PremiumHero />
 
-        <section
-          id="about"
-          className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white via-gray-50 to-white relative overflow-hidden"
-        >
-          <div className="absolute inset-0 bg-pattern opacity-30" />
-          <div className="max-w-7xl mx-auto relative z-10">
-            <div className="text-center mb-16 reveal" ref={(el) => { revealRefs.current[0] = el; }}>
-              <h2 className="text-4xl sm:text-5xl font-bold mb-4">
-                <span className="gradient-text">What I Do</span>
-              </h2>
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                Delivering end-to-end solutions that bridge design and development
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-8">
-              <div
-                className="card-premium bg-white p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-4 border border-gray-100 reveal"
-                ref={(el) => { revealRefs.current[1] = el; }}
-              >
-                <div className="w-20 h-20 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mb-6 transform hover:rotate-6 transition-transform duration-300 shadow-lg">
-                  <Code className="w-10 h-10 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                  Full-Stack Development
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Building robust, scalable web applications from frontend to
-                  backend with modern frameworks and best practices.
-                </p>
-                <div className="mt-6 w-12 h-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full" />
-              </div>
-
-              <div
-                className="card-premium bg-white p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-4 border border-gray-100 reveal"
-                ref={(el) => { revealRefs.current[2] = el; }}
-              >
-                <div className="w-20 h-20 bg-gradient-to-br from-pink-500 to-red-500 rounded-2xl flex items-center justify-center mb-6 transform hover:rotate-6 transition-transform duration-300 shadow-lg">
-                  <Palette className="w-10 h-10 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                  UI/UX & Graphic Design
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Creating intuitive, visually stunning interfaces that enhance
-                  user experience and drive engagement.
-                </p>
-                <div className="mt-6 w-12 h-1 bg-gradient-to-r from-pink-500 to-red-500 rounded-full" />
-              </div>
-
-              <div
-                className="card-premium bg-white p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-4 border border-gray-100 reveal"
-                ref={(el) => { revealRefs.current[3] = el; }}
-              >
-                <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-6 transform hover:rotate-6 transition-transform duration-300 shadow-lg">
-                  <Server className="w-10 h-10 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                  API & System Architecture
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Designing efficient, maintainable system architectures and
-                  RESTful APIs that power modern applications.
-                </p>
-                <div className="mt-6 w-12 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full" />
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* redesigned about section is now its own component */}
+        <AboutSection />
 
         <section
           id="skills"
-          className="py-24 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden"
+          className="py-24 px-4 sm:px-6 lg:px-8 bg-black text-gray-200 relative overflow-hidden"
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-purple-50/30 via-transparent to-pink-50/30" />
+          <div className="absolute inset-0 bg-linear-to-br from-purple-900/40 via-transparent to-pink-900/40" />
           <div className="max-w-7xl mx-auto relative z-10">
             <div className="max-w-3xl mx-auto text-center space-y-8 reveal" ref={(el) => { revealRefs.current[4] = el; }}>
               <h2 className="text-4xl sm:text-5xl font-bold mb-6">
                 <span className="gradient-text">Why Work With Me</span>
               </h2>
-              <p className="text-xl text-gray-600 leading-relaxed">
+              <p className="text-xl text-gray-300 leading-relaxed">
                 I bring a unique combination of{" "}
-                <span className="font-semibold text-gray-900">technical expertise</span> and{" "}
-                <span className="font-semibold text-gray-900">creative vision</span> to every project.
+                <span className="font-semibold text-white">technical expertise</span> and{" "}
+                <span className="font-semibold text-white">creative vision</span> to every project.
                 With a focus on clean code, thoughtful design, and clear communication, I deliver
                 solutions that not only meet your requirements but exceed expectations.
               </p>
 
               <div className="grid sm:grid-cols-2 gap-6 mt-12">
-                <div className="card-premium p-8 bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl border border-purple-100 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-                  <div className="w-14 h-14 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-xl flex items-center justify-center mb-4 mx-auto">
+                <div className="card-premium p-8 bg-linear-to-br from-purple-800 to-pink-800 rounded-2xl border border-purple-700 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                  <div className="w-14 h-14 bg-linear-to-br from-yellow-600 to-orange-600 rounded-xl flex items-center justify-center mb-4 mx-auto">
                     <Zap className="w-7 h-7 text-white" />
                   </div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">
+                  <h3 className="text-lg font-bold text-white mb-2">
                     Speed & Efficiency
                   </h3>
-                  <p className="text-gray-600 text-sm">
+                  <p className="text-gray-300 text-sm">
                     Rapid development without compromising quality
                   </p>
                 </div>
-                <div className="card-premium p-8 bg-gradient-to-br from-pink-50 to-red-50 rounded-2xl border border-pink-100 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-                  <div className="w-14 h-14 bg-gradient-to-br from-pink-500 to-rose-500 rounded-xl flex items-center justify-center mb-4 mx-auto">
+                <div className="card-premium p-8 bg-linear-to-br from-pink-800 to-red-800 rounded-2xl border border-pink-700 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                  <div className="w-14 h-14 bg-linear-to-br from-pink-600 to-rose-600 rounded-xl flex items-center justify-center mb-4 mx-auto">
                     <Palette className="w-7 h-7 text-white" />
                   </div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">
+                  <h3 className="text-lg font-bold text-white mb-2">
                     Design Sense
                   </h3>
-                  <p className="text-gray-600 text-sm">
+                  <p className="text-gray-300 text-sm">
                     Eye for aesthetics and user experience
                   </p>
                 </div>
-                <div className="card-premium p-8 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl border border-blue-100 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-                  <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center mb-4 mx-auto">
+                <div className="card-premium p-8 bg-linear-to-br from-blue-800 to-cyan-800 rounded-2xl border border-blue-700 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                  <div className="w-14 h-14 bg-linear-to-br from-blue-600 to-cyan-600 rounded-xl flex items-center justify-center mb-4 mx-auto">
                     <Code className="w-7 h-7 text-white" />
                   </div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">
+                  <h3 className="text-lg font-bold text-white mb-2">
                     Clean Code
                   </h3>
-                  <p className="text-gray-600 text-sm">
+                  <p className="text-gray-300 text-sm">
                     Maintainable, scalable, and well-documented
                   </p>
                 </div>
-                <div className="card-premium p-8 bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl border border-green-100 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-                  <div className="w-14 h-14 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mb-4 mx-auto">
+                <div className="card-premium p-8 bg-linear-to-br from-green-800 to-emerald-800 rounded-2xl border border-green-700 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                  <div className="w-14 h-14 bg-linear-to-br from-green-600 to-emerald-600 rounded-xl flex items-center justify-center mb-4 mx-auto">
                     <MessageCircle className="w-7 h-7 text-white" />
                   </div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">
+                  <h3 className="text-lg font-bold text-white mb-2">
                     Clear Communication
                   </h3>
-                  <p className="text-gray-600 text-sm">
+                  <p className="text-gray-300 text-sm">
                     Transparent updates and collaborative approach
                   </p>
                 </div>
@@ -195,7 +122,7 @@ export default function Home() {
           id="contact"
           className="py-24 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden"
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-purple-50/50 via-transparent to-pink-50/50" />
+          <div className="absolute inset-0 bg-linear-to-br from-purple-50/50 via-transparent to-pink-50/50" />
           <div className="max-w-7xl mx-auto relative z-10 reveal" ref={(el) => { revealRefs.current[5] = el; }}>
             <ContactForm />
           </div>

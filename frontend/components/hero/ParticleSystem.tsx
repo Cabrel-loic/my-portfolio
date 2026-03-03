@@ -10,7 +10,11 @@ interface Particle {
   size: number;
 }
 
-const ParticleSystem: React.FC = () => {
+interface ParticleSystemProps {
+  className?: string;
+}
+
+const ParticleSystem: React.FC<ParticleSystemProps> = ({ className }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const particlesRef = useRef<Particle[]>([]);
   const animationFrameRef = useRef<number | null>(null);
@@ -93,7 +97,7 @@ const ParticleSystem: React.FC = () => {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 w-full h-full opacity-40"
+      className={`absolute inset-0 w-full h-full opacity-40 ${className ?? ""}`}
     />
   );
 };

@@ -61,8 +61,8 @@ export default function Navigation() {
     <>
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? "bg-white/95 backdrop-blur-md shadow-sm" : "bg-transparent"
-        } ${isProjectRoute ? "bg-white/95 backdrop-blur-md shadow-sm" : ""}`}
+          isScrolled ? "bg-black/50 backdrop-blur-md shadow-sm" : "bg-black/30 backdrop-blur-sm"
+        } ${isProjectRoute ? "bg-black/50 backdrop-blur-md shadow-sm" : ""}`}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 lg:h-20">
@@ -70,7 +70,7 @@ export default function Navigation() {
               {isProjectRoute ? (
                 <Link
                   href="/"
-                  className={`text-xl lg:text-2xl font-bold transition-colors text-gray-900 hover:opacity-80 flex items-center gap-2`}
+                  className="text-xl lg:text-2xl font-bold transition-colors text-white hover:opacity-80 flex items-center gap-2"
                 >
                   <ArrowLeft className="w-5 h-5" aria-hidden />
                   Portfolio
@@ -79,9 +79,7 @@ export default function Navigation() {
                 <button
                   type="button"
                   onClick={() => scrollToSection("home")}
-                  className={`text-xl lg:text-2xl font-bold transition-colors ${
-                    isScrolled ? "text-gray-900" : "text-white"
-                  } hover:opacity-80`}
+                  className="text-xl lg:text-2xl font-bold transition-colors text-white hover:opacity-80"
                 >
                   Portfolio
                 </button>
@@ -93,19 +91,19 @@ export default function Navigation() {
                 <>
                   <Link
                     href="/"
-                    className="px-4 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 rounded-md transition-colors"
+                    className="px-4 py-2 text-sm font-medium text-white/80 hover:text-white rounded-md transition-colors"
                   >
                     Home
                   </Link>
                   <Link
                     href="/#projects"
-                    className="px-4 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 rounded-md transition-colors"
+                    className="px-4 py-2 text-sm font-medium text-white/80 hover:text-white rounded-md transition-colors"
                   >
                     Projects
                   </Link>
                   <Link
                     href="/#contact"
-                    className="ml-4 px-5 py-2 text-sm font-medium rounded-md bg-gray-900 text-white hover:bg-gray-800 transition-colors"
+                    className="ml-4 px-5 py-2 text-sm font-medium rounded-md bg-cyan-600 text-white hover:bg-cyan-700 transition-colors"
                   >
                     Hire Me
                   </Link>
@@ -119,30 +117,20 @@ export default function Navigation() {
                       onClick={() => scrollToSection(link.id)}
                       className={`px-4 py-2 text-sm font-medium transition-all duration-200 relative ${
                         activeSection === link.id
-                          ? isScrolled ? "text-gray-900" : "text-white"
-                          : isScrolled
-                            ? "text-gray-600 hover:text-gray-900"
-                            : "text-white/80 hover:text-white"
+                          ? "text-white"
+                          : "text-white/80 hover:text-white"
                       }`}
                     >
                       {link.label}
                       {activeSection === link.id && (
-                        <span
-                          className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full ${
-                            isScrolled ? "bg-gray-900" : "bg-white"
-                          }`}
-                        />
+                        <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-white" />
                       )}
                     </button>
                   ))}
                   <button
                     type="button"
                     onClick={() => scrollToSection("contact")}
-                    className={`ml-4 px-5 py-2 text-sm font-medium rounded-md transition-colors ${
-                      isScrolled
-                        ? "bg-gray-900 text-white hover:bg-gray-800"
-                        : "bg-white text-gray-900 hover:bg-gray-100"
-                    }`}
+                    className="ml-4 px-5 py-2 text-sm font-medium rounded-md transition-colors bg-cyan-600 text-white hover:bg-cyan-700"
                   >
                     Hire Me
                   </button>
@@ -154,11 +142,7 @@ export default function Navigation() {
               <button
                 type="button"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className={`p-2 rounded-md transition-colors ${
-                  isScrolled || isProjectRoute
-                    ? "text-gray-900 hover:bg-gray-100"
-                    : "text-white hover:bg-white/10"
-                }`}
+                className="p-2 rounded-md transition-colors text-white hover:bg-white/10"
                 aria-label="Toggle menu"
               >
                 {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -170,28 +154,28 @@ export default function Navigation() {
         <div
           className={`md:hidden fixed top-16 left-0 right-0 z-40 transition-all duration-300 ease-in-out overflow-hidden ${
             isMobileMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0 pointer-events-none"
-          } bg-white/98 backdrop-blur-md shadow-lg`}
+          } bg-black/85 backdrop-blur-md shadow-lg`}
         >
           <div className="px-6 py-4 space-y-1">
             {isProjectRoute ? (
               <>
                 <Link
                   href="/"
-                  className="block px-4 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 rounded-md"
+                  className="block px-4 py-3 text-base font-medium text-white/80 hover:text-white rounded-md transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Home
                 </Link>
                 <Link
                   href="/#projects"
-                  className="block px-4 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 rounded-md"
+                  className="block px-4 py-3 text-base font-medium text-white/80 hover:text-white rounded-md transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Projects
                 </Link>
                 <Link
                   href="/#contact"
-                  className="block mt-2 px-4 py-3 bg-gray-900 text-white rounded-md hover:bg-gray-800 font-medium text-center"
+                  className="block mt-2 px-4 py-3 bg-cyan-600 text-white rounded-md hover:bg-cyan-700 font-medium text-center transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Hire Me
@@ -204,8 +188,8 @@ export default function Navigation() {
                     key={link.id}
                     type="button"
                     onClick={() => scrollToSection(link.id)}
-                    className={`block w-full text-left px-4 py-3 text-base font-medium rounded-md ${
-                      activeSection === link.id ? "bg-gray-100 text-gray-900" : "text-gray-700 hover:bg-gray-50"
+                    className={`block w-full text-left px-4 py-3 text-base font-medium rounded-md transition-colors ${
+                      activeSection === link.id ? "bg-white/10 text-white" : "text-white/80 hover:text-white hover:bg-white/5"
                     }`}
                   >
                     {link.label}
@@ -214,7 +198,7 @@ export default function Navigation() {
                 <button
                   type="button"
                   onClick={() => scrollToSection("contact")}
-                  className="w-full mt-2 px-4 py-3 bg-gray-900 text-white rounded-md hover:bg-gray-800 font-medium"
+                  className="w-full mt-2 px-4 py-3 bg-cyan-600 text-white rounded-md hover:bg-cyan-700 font-medium transition-colors"
                 >
                   Hire Me
                 </button>

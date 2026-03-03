@@ -6,6 +6,7 @@ import Navigation from "../components/Navigation";
 import ContactForm from "../components/ContactForm";
 import { ProjectsSection } from "@/features/projects/components/ProjectsSection";
 import { Code, Palette, Server, Sparkles, Zap, Heart, MessageCircle } from "lucide-react";
+import PremiumHero from "../components/hero/PremiumHero";
 
 export default function Home() {
   const revealRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -42,75 +43,11 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-white overflow-hidden">
+    <div className="min-h-screen bg-black overflow-hidden">
       <Navigation />
 
       <main>
-        <section
-          id="home"
-          className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20 bg-pattern relative"
-          style={{
-            background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-          }}
-        >
-          <div className="absolute inset-0 bg-black/20" />
-          <div className="max-w-7xl mx-auto w-full relative z-10">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="space-y-8 animate-fade-in-up relative z-10">
-                <div className="space-y-6">
-                  <div className="inline-block">
-                    <span className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold text-white mb-4 animate-fade-in border border-white/30">
-                      <Sparkles className="w-4 h-4" />
-                      Available for Projects
-                    </span>
-                  </div>
-                  <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight text-white">
-                    Full-Stack Web Developer
-                    <br />
-                    <span className="text-white/90">& Graphic Designer</span>
-                  </h1>
-                  <p className="text-xl sm:text-2xl text-white/90 leading-relaxed max-w-2xl">
-                    Crafting digital experiences that combine{" "}
-                    <span className="font-semibold text-white">technical excellence</span>{" "}
-                    with <span className="font-semibold text-white">creative vision</span>.
-                    Building scalable solutions and beautiful interfaces that drive results.
-                  </p>
-                </div>
-
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <button
-                    onClick={() => scrollToSection("projects")}
-                    className="btn-premium px-8 py-4 bg-white text-gray-900 rounded-md hover:bg-gray-100 transition-all duration-300 font-semibold text-lg transform hover:scale-105 shadow-lg"
-                  >
-                    <span>View My Work</span>
-                  </button>
-                  <button
-                    onClick={() => scrollToSection("contact")}
-                    className="px-8 py-4 bg-transparent border-2 border-white text-white rounded-md hover:bg-white hover:text-gray-900 transition-all duration-300 font-semibold text-lg transform hover:scale-105"
-                  >
-                    Contact Me
-                  </button>
-                </div>
-              </div>
-
-              <div className="hidden lg:block animate-float relative z-10">
-                <div className="relative">
-                  <div className="absolute inset-0 bg-white/20 backdrop-blur-sm rounded-3xl blur-3xl opacity-50" />
-                  <div className="relative w-full h-96 bg-white/10 backdrop-blur-md rounded-3xl overflow-hidden border border-white/20 shadow-2xl">
-                    <Image
-                      src="/assets/img/homeImage.jpg"
-                      alt="Full-Stack Developer"
-                      fill
-                      className="object-cover"
-                      priority
-                      quality={90}
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <PremiumHero />
 
         <section
           id="about"

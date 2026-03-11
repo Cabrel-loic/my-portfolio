@@ -72,7 +72,7 @@ export default function ContactForm() {
             errorData.detail || "Failed to send message. Please try again.",
         });
       }
-    } catch (error) {
+    } catch {
       setStatus({
         type: "error",
         message: "Failed to send message. Please check your connection and try again.",
@@ -87,10 +87,12 @@ export default function ContactForm() {
       {/* Section Header */}
       <div className="text-center">
         <h2 className="text-4xl sm:text-5xl font-bold mb-4">
-          <span className="gradient-text">Get In Touch</span>
+          <span className="bg-clip-text text-transparent bg-linear-to-r from-cyan-400 to-purple-500">
+            Get In Touch
+          </span>
         </h2>
-        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-          Have a project in mind? Let's collaborate and create something extraordinary together.
+        <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+          Have a project in mind? Let&apos;s collaborate and create something extraordinary together.
         </p>
       </div>
 
@@ -102,16 +104,16 @@ export default function ContactForm() {
           <div className="space-y-6">
             {/* Address */}
             <div className="flex gap-4 group">
-              <div className="flex-shrink-0">
-                <div className="flex items-center justify-center h-12 w-12 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 group-hover:shadow-lg transition-shadow">
+              <div className="shrink-0">
+                <div className="flex items-center justify-center h-12 w-12 rounded-xl bg-linear-to-br from-blue-600 to-cyan-600 group-hover:shadow-lg transition-shadow">
                   <MapPin className="h-6 w-6 text-white" />
                 </div>
               </div>
-              <div className="flex-grow">
-                <h3 className="text-lg font-semibold text-gray-900 mb-1">
+              <div className="grow">
+                <h3 className="text-lg font-semibold text-white mb-1">
                   Address
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-gray-300">
                   <a
                     href="https://maps.app.goo.gl/J7XVCfuRAar8PMcYA"
                     target="_blank"
@@ -126,37 +128,37 @@ export default function ContactForm() {
 
             {/* Phone */}
             <div className="flex gap-4 group">
-              <div className="flex-shrink-0">
-                <div className="flex items-center justify-center h-12 w-12 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 group-hover:shadow-lg transition-shadow">
+              <div className="shrink-0">
+                <div className="flex items-center justify-center h-12 w-12 rounded-xl bg-linear-to-br from-purple-600 to-pink-600 group-hover:shadow-lg transition-shadow">
                   <Phone className="h-6 w-6 text-white" />
                 </div>
               </div>
-              <div className="flex-grow">
-                <h3 className="text-lg font-semibold text-gray-900 mb-1">
+              <div className="grow">
+                <h3 className="text-lg font-semibold text-white mb-1">
                   Call Us
                 </h3>
-                <p className="text-gray-600">+1 5589 55488 55</p>
+                <p className="text-gray-300">+1 5589 55488 55</p>
               </div>
             </div>
 
             {/* Email */}
             <div className="flex gap-4 group">
-              <div className="flex-shrink-0">
-                <div className="flex items-center justify-center h-12 w-12 rounded-xl bg-gradient-to-br from-green-500 to-emerald-500 group-hover:shadow-lg transition-shadow">
+              <div className="shrink-0">
+                <div className="flex items-center justify-center h-12 w-12 rounded-xl bg-linear-to-br from-green-600 to-emerald-600 group-hover:shadow-lg transition-shadow">
                   <Mail className="h-6 w-6 text-white" />
                 </div>
               </div>
-              <div className="flex-grow">
-                <h3 className="text-lg font-semibold text-gray-900 mb-1">
+              <div className="grow">
+                <h3 className="text-lg font-semibold text-white mb-1">
                   Email Us
                 </h3>
-                <p className="text-gray-600">loickemloung@gmail.com</p>
+                <p className="text-gray-300">loickemloung@gmail.com</p>
               </div>
             </div>
           </div>
 
           {/* Map */}
-          <div className="relative rounded-2xl overflow-hidden border border-gray-200 shadow-lg h-96">
+          <div className="relative rounded-2xl overflow-hidden border border-gray-700 shadow-lg h-96">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.8234456789!2d-74.2234567!3d40.7456789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a22b8c8c8c9%3A0x5c5c5c5c5c5c5c5c!2sNew%20York%2C%20NY!5e0!3m2!1sen!2sus!4v1234567890"
               width="100%"
@@ -185,21 +187,21 @@ export default function ContactForm() {
 
         {/* Right Side - Contact Form */}
         <div>
-          <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100 hover:shadow-2xl transition-shadow duration-300">
+          <div className="bg-zinc-900 rounded-2xl shadow-xl p-8 border border-gray-700 hover:shadow-2xl transition-shadow duration-300">
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Success/Error Message */}
               {status.type && (
                 <div
                   className={`p-4 rounded-xl flex gap-3 animate-fade-in ${
                     status.type === "success"
-                      ? "bg-green-50 border border-green-200"
-                      : "bg-red-50 border border-red-200"
+                      ? "bg-green-900/40 border border-green-600"
+                      : "bg-red-900/40 border border-red-600"
                   }`}
                 >
                   {status.type === "success" ? (
-                    <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="h-5 w-5 text-green-600 shrink-0 mt-0.5" />
                   ) : (
-                    <AlertCircle className="h-5 w-5 text-red-600 flex-shrink-0 mt-0.5" />
+                    <AlertCircle className="h-5 w-5 text-red-600 shrink-0 mt-0.5" />
                   )}
                   <p
                     className={
@@ -217,7 +219,7 @@ export default function ContactForm() {
               <div>
                 <label
                   htmlFor="name"
-                  className="block text-sm font-semibold text-gray-900 mb-2"
+                  className="block text-sm font-semibold text-gray-200 mb-2"
                 >
                   Your Name
                 </label>
@@ -229,7 +231,7 @@ export default function ContactForm() {
                   onChange={handleChange}
                   placeholder="John Doe"
                   required
-                  className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200 text-gray-900 placeholder-gray-400"
+                  className="w-full px-4 py-3 bg-zinc-800 border border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-200 text-gray-200 placeholder-gray-500"
                 />
               </div>
 
@@ -237,7 +239,7 @@ export default function ContactForm() {
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-sm font-semibold text-gray-900 mb-2"
+                  className="block text-sm font-semibold text-gray-200 mb-2"
                 >
                   Your Email
                 </label>
@@ -249,7 +251,7 @@ export default function ContactForm() {
                   onChange={handleChange}
                   placeholder="john@example.com"
                   required
-                  className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200 text-gray-900 placeholder-gray-400"
+                  className="w-full px-4 py-3 bg-zinc-800 border border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-200 text-gray-200 placeholder-gray-500"
                 />
               </div>
 
@@ -257,7 +259,7 @@ export default function ContactForm() {
               <div>
                 <label
                   htmlFor="subject"
-                  className="block text-sm font-semibold text-gray-900 mb-2"
+                  className="block text-sm font-semibold text-gray-200 mb-2"
                 >
                   Subject
                 </label>
@@ -269,7 +271,7 @@ export default function ContactForm() {
                   onChange={handleChange}
                   placeholder="Project Inquiry"
                   required
-                  className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200 text-gray-900 placeholder-gray-400"
+                  className="w-full px-4 py-3 bg-zinc-800 border border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-200 text-gray-200 placeholder-gray-500"
                 />
               </div>
 
@@ -277,7 +279,7 @@ export default function ContactForm() {
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-sm font-semibold text-gray-900 mb-2"
+                  className="block text-sm font-semibold text-gray-200 mb-2"
                 >
                   Message
                 </label>
@@ -289,7 +291,7 @@ export default function ContactForm() {
                   placeholder="Tell me about your project..."
                   rows={5}
                   required
-                  className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200 resize-none text-gray-900 placeholder-gray-400"
+                  className="w-full px-4 py-3 bg-zinc-800 border border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-200 resize-none text-gray-200 placeholder-gray-500"
                 />
               </div>
 
@@ -297,7 +299,7 @@ export default function ContactForm() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 disabled:opacity-50 disabled:cursor-not-allowed text-white font-semibold py-3 px-6 rounded-xl transition-all duration-200 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl"
+                className="w-full bg-linear-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 disabled:opacity-50 disabled:cursor-not-allowed text-white font-semibold py-3 px-6 rounded-xl transition-all duration-200 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl"
               >
                 {isSubmitting ? (
                   <>
@@ -313,7 +315,7 @@ export default function ContactForm() {
               </button>
 
               <p className="text-center text-sm text-gray-500">
-                We'll respond within 24 hours
+                We&apos;ll respond within 24 hours
               </p>
             </form>
           </div>

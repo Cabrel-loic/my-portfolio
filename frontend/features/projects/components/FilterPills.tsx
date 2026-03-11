@@ -21,7 +21,7 @@ export function FilterPills() {
 
   return (
     <div className="flex flex-wrap items-center gap-3">
-      <span className="text-sm font-medium text-gray-500">Status</span>
+      <span className="text-sm font-medium text-gray-300">Status</span>
       <div className="flex flex-wrap gap-2">
         <button
           type="button"
@@ -31,8 +31,8 @@ export function FilterPills() {
             "border-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-purple-500 focus-visible:outline-offset-2",
             filters.status.length === 0 && "project-filter-pill--active",
             filters.status.length === 0
-              ? "border-purple-500 bg-purple-500 text-white shadow-lg shadow-purple-500/30"
-              : "border-gray-200 bg-white text-gray-700 hover:border-purple-300 hover:bg-purple-50/50"
+              ? "border-purple-500 bg-purple-600 text-white shadow-lg shadow-purple-600/40"
+              : "border-gray-700 bg-zinc-800 text-gray-300 hover:border-purple-500 hover:bg-zinc-700/60"
           )}
         >
           All
@@ -49,8 +49,8 @@ export function FilterPills() {
                 "border-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-purple-500 focus-visible:outline-offset-2",
                 active && "project-filter-pill--active",
                 active
-                  ? "border-purple-500 bg-purple-500 text-white shadow-lg shadow-purple-500/30"
-                  : "border-gray-200 bg-white text-gray-700 hover:border-purple-300 hover:bg-purple-50/50"
+                  ? "border-purple-500 bg-purple-600 text-white shadow-lg shadow-purple-600/40"
+                  : "border-gray-700 bg-zinc-800 text-gray-300 hover:border-purple-500 hover:bg-zinc-700/60"
               )}
             >
               {label}
@@ -58,7 +58,7 @@ export function FilterPills() {
           );
         })}
       </div>
-      <span className="text-sm font-medium text-gray-500 ml-4">Sort</span>
+      <span className="text-sm font-medium text-gray-300 ml-4">Sort</span>
       <div className="flex flex-wrap gap-2">
         {ORDERING_PILLS.map(({ value, label }) => {
           const active = filters.ordering === value;
@@ -72,8 +72,8 @@ export function FilterPills() {
                 "border-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-purple-500 focus-visible:outline-offset-2",
                 active && "project-filter-pill--active",
                 active
-                  ? "border-purple-500 bg-purple-500 text-white shadow-lg shadow-purple-500/30"
-                  : "border-gray-200 bg-white text-gray-700 hover:border-purple-300 hover:bg-purple-50/50"
+                  ? "border-purple-500 bg-purple-600 text-white shadow-lg shadow-purple-600/40"
+                  : "border-gray-700 bg-zinc-800 text-gray-300 hover:border-purple-500 hover:bg-zinc-700/60"
               )}
             >
               {label}

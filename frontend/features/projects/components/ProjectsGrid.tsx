@@ -27,7 +27,7 @@ export function ProjectsGrid() {
         );
         if (!mounted) return;
         setIsSuperuser(Boolean(data?.is_superuser));
-      } catch (e) {
+      } catch {
         // endpoint missing or unauthorized -> keep as not superuser
       }
     }
@@ -67,11 +67,11 @@ export function ProjectsGrid() {
 
       {isError && (
         <div
-          className="rounded-2xl border border-red-200 bg-red-50 p-8 text-center"
+          className="rounded-2xl border border-red-600 bg-red-900/40 p-8 text-center"
           role="alert"
         >
-          <AlertCircle className="w-12 h-12 text-red-500 mx-auto mb-4" />
-          <p className="text-red-800 font-medium mb-2">
+          <AlertCircle className="w-12 h-12 text-red-400 mx-auto mb-4" />
+          <p className="text-red-200 font-medium mb-2">
             {error instanceof Error ? error.message : "Failed to load projects"}
           </p>
           <Button
@@ -87,9 +87,9 @@ export function ProjectsGrid() {
       )}
 
       {!isPending && !isError && data && data.results.length === 0 && (
-        <div className="rounded-2xl border border-gray-200 bg-gray-50 p-12 text-center">
-          <p className="text-gray-600 font-medium">No projects match the current filters.</p>
-          <p className="text-sm text-gray-500 mt-1">Try adjusting status or sort.</p>
+        <div className="rounded-2xl border border-gray-700 bg-zinc-900/60 p-12 text-center">
+          <p className="text-gray-300 font-medium">No projects match the current filters.</p>
+          <p className="text-sm text-gray-400 mt-1">Try adjusting status or sort.</p>
         </div>
       )}
 

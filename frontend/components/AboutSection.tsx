@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import {
   Code,
   Server,
@@ -84,9 +85,15 @@ export default function AboutSection() {
           ref={(el) => { revealRefs.current[0] = el; }}
         >
           <div className="flex justify-center">
-            <div className="flex items-center justify-center w-64 h-64 rounded-full border-4 border-cyan-400/70 overflow-hidden shadow-2xl bg-linear-to-br from-cyan-500 to-blue-500">
-              {/* replace this with a real photo or image component when available */}
-              <span className="text-4xl font-bold text-white">C</span>
+            <div className="relative w-64 h-64 rounded-full border-4 border-cyan-400/70 overflow-hidden shadow-2xl bg-linear-to-br from-cyan-500 to-blue-500">
+              {/* replace the src below with your professional photo path/name */}
+              <Image
+                src="/assets/img/portfolio/your-photo.jpg"
+                alt="Cabrel profile"
+                layout="fill"
+                objectFit="cover"
+                className="rounded-full"
+              />
             </div>
           </div>
           <div className="space-y-6">

@@ -32,9 +32,9 @@ export function CardGlow({ children, className, href }: CardGlowProps) {
       ref={ref}
       className={cn(
         "project-card",
-        "relative overflow-hidden rounded-2xl border border-gray-200/80 bg-white shadow-lg",
+        "relative overflow-hidden rounded-2xl border border-gray-200/80 bg-zinc-900 shadow-lg",
         "transition-all duration-[var(--duration-normal)] ease-[var(--ease-out-quart)]",
-        "hover:scale-[1.02] hover:-translate-y-1 hover:shadow-xl hover:border-purple-200",
+        "hover:scale-[1.02] hover:-translate-y-1 hover:shadow-xl hover:border-purple-500",
         "project-card-glow",
         "before:pointer-events-none before:absolute before:inset-0 before:rounded-2xl before:transition-opacity before:duration-300",
         "will-change: transform",

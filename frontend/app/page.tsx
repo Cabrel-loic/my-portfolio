@@ -4,6 +4,9 @@ import { Suspense, useEffect, useRef } from "react";
 import Navigation from "../components/Navigation";
 import ContactForm from "../components/ContactForm";
 import AboutSection from "../components/AboutSection";
+import ParticleSystem from "@/components/hero/ParticleSystem";
+import DataStreams from "@/components/hero/DataStreams";
+import GridOverlay from "@/components/hero/GridOverlay";
 import { ProjectsSection } from "@/features/projects/components/ProjectsSection";
 import { Code, Palette, Zap, MessageCircle } from "lucide-react";
 import PremiumHero from "../components/hero/PremiumHero";
@@ -65,7 +68,7 @@ export default function Home() {
               </p>
 
               <div className="grid sm:grid-cols-2 gap-6 mt-12">
-                <div className="card-premium p-8 bg-linear-to-br from-purple-800 to-pink-800 rounded-2xl border border-purple-700 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                <div className="card-premium p-8 bg-linear-to-br from-purple-800 to-pink-800 rounded-2xl border border-purple-700 hover:shadow-xl transition-all duration-300 transform hover:scale-105 animate-move-1 will-change-transform">
                   <div className="w-14 h-14 bg-linear-to-br from-yellow-600 to-orange-600 rounded-xl flex items-center justify-center mb-4 mx-auto">
                     <Zap className="w-7 h-7 text-white" />
                   </div>
@@ -76,7 +79,7 @@ export default function Home() {
                     Rapid development without compromising quality
                   </p>
                 </div>
-                <div className="card-premium p-8 bg-linear-to-br from-pink-800 to-red-800 rounded-2xl border border-pink-700 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                <div className="card-premium p-8 bg-linear-to-br from-pink-800 to-red-800 rounded-2xl border border-pink-700 hover:shadow-xl transition-all duration-300 transform hover:scale-105 animate-move-2 will-change-transform">
                   <div className="w-14 h-14 bg-linear-to-br from-pink-600 to-rose-600 rounded-xl flex items-center justify-center mb-4 mx-auto">
                     <Palette className="w-7 h-7 text-white" />
                   </div>
@@ -87,7 +90,7 @@ export default function Home() {
                     Eye for aesthetics and user experience
                   </p>
                 </div>
-                <div className="card-premium p-8 bg-linear-to-br from-blue-800 to-cyan-800 rounded-2xl border border-blue-700 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                <div className="card-premium p-8 bg-linear-to-br from-blue-800 to-cyan-800 rounded-2xl border border-blue-700 hover:shadow-xl transition-all duration-300 transform hover:scale-105 animate-move-3 will-change-transform">
                   <div className="w-14 h-14 bg-linear-to-br from-blue-600 to-cyan-600 rounded-xl flex items-center justify-center mb-4 mx-auto">
                     <Code className="w-7 h-7 text-white" />
                   </div>
@@ -98,7 +101,7 @@ export default function Home() {
                     Maintainable, scalable, and well-documented
                   </p>
                 </div>
-                <div className="card-premium p-8 bg-linear-to-br from-green-800 to-emerald-800 rounded-2xl border border-green-700 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                <div className="card-premium p-8 bg-linear-to-br from-green-800 to-emerald-800 rounded-2xl border border-green-700 hover:shadow-xl transition-all duration-300 transform hover:scale-105 animate-move-4 will-change-transform">
                   <div className="w-14 h-14 bg-linear-to-br from-green-600 to-emerald-600 rounded-xl flex items-center justify-center mb-4 mx-auto">
                     <MessageCircle className="w-7 h-7 text-white" />
                   </div>
@@ -120,9 +123,13 @@ export default function Home() {
 
         <section
           id="contact"
-          className="py-24 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden"
+          className="py-24 px-4 sm:px-6 lg:px-8 bg-black text-gray-200 relative overflow-hidden"
         >
-          <div className="absolute inset-0 bg-linear-to-br from-purple-50/50 via-transparent to-pink-50/50" />
+          {/* animated dark backgrounds */}
+          <ParticleSystem className="absolute inset-0 opacity-15 pointer-events-none" />
+          <DataStreams className="absolute inset-0 opacity-25 pointer-events-none" />
+          <GridOverlay className="absolute inset-0 opacity-5 pointer-events-none" />
+          <div className="absolute inset-0 bg-linear-to-br from-purple-900/40 via-transparent to-pink-900/40" />
           <div className="max-w-7xl mx-auto relative z-10 reveal" ref={(el) => { revealRefs.current[5] = el; }}>
             <ContactForm />
           </div>

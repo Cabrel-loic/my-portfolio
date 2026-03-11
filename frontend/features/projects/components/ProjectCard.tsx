@@ -63,7 +63,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
         className="block outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 rounded-2xl"
       >
         <CardGlow>
-        <div className="relative aspect-video w-full overflow-hidden rounded-t-2xl bg-gray-100">
+        <div className="relative aspect-video w-full overflow-hidden rounded-t-2xl bg-zinc-800">
           {project.thumbnail ? (
             <Image
               src={project.thumbnail}
@@ -90,17 +90,17 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           </span>
         </div>
         <div className="p-5">
-          <h3 className="font-bold text-lg text-gray-900 line-clamp-2 mb-2">
+          <h3 className="font-bold text-lg text-white line-clamp-2 mb-2">
             {project.title}
           </h3>
-          <p className="text-gray-600 text-sm line-clamp-2 mb-4">
+          <p className="text-gray-300 text-sm line-clamp-2 mb-4">
             {project.short_description}
           </p>
           <div className="flex flex-wrap gap-2 mb-4">
             {project.technologies.slice(0, 5).map((t) => (
               <span
                 key={t.slug}
-                className="px-2.5 py-0.5 text-xs font-medium rounded-full bg-gray-100 text-gray-700"
+                className="px-2.5 py-0.5 text-xs font-medium rounded-full bg-zinc-800 text-gray-300"
               >
                 {t.name}
               </span>
@@ -113,7 +113,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={(e) => e.stopPropagation()}
-                className="inline-flex items-center gap-1.5 text-sm font-medium text-purple-600 hover:text-purple-700"
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-cyan-400 hover:text-cyan-300"
               >
                 <ExternalLink className="w-4 h-4" />
                 Demo
@@ -125,7 +125,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={(e) => e.stopPropagation()}
-                className="inline-flex items-center gap-1.5 text-sm font-medium text-gray-600 hover:text-gray-900"
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-gray-300 hover:text-white"
               >
                 <Github className="w-4 h-4" />
                 Code

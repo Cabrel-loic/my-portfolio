@@ -1,9 +1,13 @@
 import React from "react";
 
-const GridOverlay: React.FC = () => {
+interface GridOverlayProps {
+  className?: string;
+}
+
+export default function GridOverlay({ className }: GridOverlayProps) {
   return (
     <svg
-      className="absolute inset-0 w-full h-full opacity-5"
+      className={`absolute inset-0 w-full h-full opacity-5 ${className ?? ""}`}
       preserveAspectRatio="none"
     >
       <defs>
@@ -14,6 +18,4 @@ const GridOverlay: React.FC = () => {
       <rect width="100%" height="100%" fill="url(#grid)" />
     </svg>
   );
-};
-
-export default GridOverlay;
+}

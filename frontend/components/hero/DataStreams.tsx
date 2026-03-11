@@ -1,9 +1,13 @@
 import React from "react";
 
-const DataStreams: React.FC = () => {
+interface DataStreamsProps {
+  className?: string;
+}
+
+export default function DataStreams({ className }: DataStreamsProps) {
   return (
     <svg
-      className="absolute inset-0 w-full h-full"
+      className={`absolute inset-0 w-full h-full ${className ?? ""}`}
       style={{
         height: "100%",
         overflow: "visible",
@@ -161,6 +165,4 @@ const DataStreams: React.FC = () => {
       />
     </svg>
   );
-};
-
-export default DataStreams;
+}
